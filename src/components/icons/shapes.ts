@@ -1,0 +1,13 @@
+/** Caminhos SVG reutilizáveis (viewBox 0 0 24 24). */
+export const STAR_4_PATH =
+  'M12 0 C12.9 7.6 16.4 11.1 24 12 C16.4 12.9 12.9 16.4 12 24 C11.1 16.4 7.6 12.9 0 12 C7.6 11.1 11.1 7.6 12 0 Z'
+
+export const HEART_PATH =
+  'M12 20.5 C12 20.5 3.5 15.5 2.5 10 C1.8 6.5 4 4 7 4 C9.2 4 10.9 5.3 12 7 C13.1 5.3 14.8 4 17 4 C20 4 22.2 6.5 21.5 10 C20.5 15.5 12 20.5 12 20.5 Z'
+
+export const SAKURA_PETAL_PATH =
+  'M12 12 C9.4 9.6 9 5.6 10.5 3 L12 4.6 L13.5 3 C15 5.6 14.6 9.6 12 12 Z'
+
+export const FALLING_PETAL_PATH = 'M12 2 C17.5 6 18.5 14 12 22 C5.5 14 6.5 6 12 2 Z'
+
+export const DROP_PATH = 'M12 2 C12 2 5 10.5 5 15 A7 7 0 0 0 19 15 C19 10.5 12 2 12 2 Z'

@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta Kimizu em canais RGB, consumida pelo tailwind.config.ts e por tokens.ts */
+:root {
+  --c-night-950: 11 16 48; /* #0B1030 */
+  --c-night-900: 18 23 63; /* #12173F */
+  --c-night-800: 26 31 90; /* #1A1F5A */
+
+  --c-crystal: 79 163 255; /* #4FA3FF */
+  --c-crystal-light: 124 196 255; /* #7CC4FF */
+
+  --c-lilac: 167 139 250; /* #A78BFA */
+  --c-lilac-light: 196 168 255; /* #C4A8FF */
+
+  --c-sakura: 233 184 255; /* #E9B8FF */
+  --c-sakura-light: 245 208 254; /* #F5D0FE */
+
+  --c-plum: 107 78 95; /* #6B4E5F */
+  --c-plum-light: 138 106 122; /* #8A6A7A */
+
+  --c-cream: 243 221 208; /* #F3DDD0 */
+
+  --c-ink: 238 233 255; /* #EEE9FF */
+  --c-ink-soft: 185 180 232; /* #B9B4E8 */
+
+  --header-height: 4.5rem;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-screen bg-night-950 font-body text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+  }
+
+  ::selection {
+    background: rgb(var(--c-lilac) / 0.45);
+    color: rgb(var(--c-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-crystal-light));
+    outline-offset: 3px;
+    border-radius: 0.75rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--c-night-950));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(var(--c-crystal) / 0.6), rgb(var(--c-lilac) / 0.6));
+    border-radius: 999px;
+    border: 2px solid rgb(var(--c-night-950));
+  }
+}
+
+@layer components {
+  /* Vidro escuro com borda fina lilás/azul */
+  .glass {
+    background: linear-gradient(145deg, rgb(var(--c-night-800) / 0.55), rgb(var(--c-night-950) / 0.55));
+    border: 1px solid rgb(var(--c-lilac-light) / 0.22);
+    box-shadow:
+      inset 0 1px 0 rgb(var(--c-ink) / 0.08),
+      0 8px 32px -12px rgb(var(--c-night-950) / 0.9),
+      0 0 24px -10px rgb(var(--c-lilac) / 0.35);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .text-logo {
+    @apply bg-ice-lilac bg-clip-text font-logo text-transparent;
+    background-size: 200% 100%;
+    filter: drop-shadow(0 0 6px rgb(var(--c-crystal) / 0.55)) drop-shadow(0 0 22px rgb(var(--c-lilac) / 0.4));
+  }
+
+  .text-gradient {
+    @apply bg-crystal-lilac-bright bg-clip-text text-transparent;
+  }
+
+  .slogan {
+    @apply font-body text-sm font-light lowercase tracking-[0.35em] text-lilac-light;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-crystal-lilac px-6 py-3 font-display text-base font-semibold text-white shadow-glow-crystal transition duration-300 ease-out;
+    text-shadow: 0 1px 6px rgb(var(--c-night-950) / 0.35);
+  }
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-glow-strong brightness-110;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-lilac-light/40 bg-night-900/40 px-6 py-3 font-display text-base font-semibold text-ink backdrop-blur transition duration-300 ease-out;
+  }
+  .btn-ghost:hover {
+    @apply -translate-y-0.5 border-lilac-light/80 shadow-glow-lilac;
+  }
+
+  .jp-signature {
+    @apply font-jp tracking-[0.3em] text-lilac-light/70;
+  }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .motion-hide {
+    display: none !important;
+  }
+}
