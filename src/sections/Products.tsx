@@ -53,10 +53,25 @@ export function Products() {
         {loading ? (
           <p className="py-10 text-center text-ink-soft">Carregando tesourinhos…</p>
         ) : filteredProducts.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onOpen={setOpenProduct} />
-            ))}
+          <div>
+            <p className="mb-3 text-center font-display text-xs tracking-[0.2em] text-ink-soft lowercase">
+              deslize para o lado ✦
+            </p>
+            <div
+              className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:thin] sm:mx-0 sm:gap-6 sm:px-1 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-lilac/40"
+              role="list"
+              aria-label="Lista de produtos"
+            >
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  role="listitem"
+                  className="w-[min(78vw,18.5rem)] shrink-0 snap-center sm:w-72 lg:w-80"
+                >
+                  <ProductCard product={product} onOpen={setOpenProduct} />
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-4 py-10 text-center">
